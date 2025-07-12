@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+      <form  action="/order_reg" method="POST">
+        <table  border="1">
+        <tr>
+            <td>id товара</td>
+            <td>Фото товара</td>
+            <td>Название товара</td>
+            <td>Цена товара</td>
+            <td>Количество</td>
+            <td>Выбрать товар<br><br>
+            </td>
+        </tr>
+          {% for i in data.result %}
+          <tr>
+            <td>{{ i[0][0] }}</td>
+            <td>{{ i[0][1] }}</td>
+            <td>{{ i[0][2] }}</td>
+            <td>{{ i[0][3] }}</td>
+            <td></td>
+            <td><input type="checkbox" name="{{i[0][0]}}"></td>
+          </tr>
+          {% endfor %}
+        </table>
+      <button type="submit">Перейти к оформлению заказа</button><br>
+      </form>
+    </div>
+</body>
+</html>

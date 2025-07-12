@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/1.css">
+</head>
+
+<body>
+    <div class="a">
+        <div class="c">
+            <img src="../static/logos/mts.png" width="35px" height="35px">
+            <p valign="center">Москва</p>
+        </div>
+        <div>
+            <form action="/search" method="get" width="500px">
+                <input type="text" placeholder="Поиск" name="requestt">
+                <button id="d" type="submit"><a href='/s'><img src="../static/search.svg" width="10px"
+                            height="10px"></a></button>
+            </form>
+        </div>
+        <div class="c">
+            <img src="../static/shopping_cart.svg" width="30px" height="30px">
+            <button>Войти</button>
+        </div>
+    </div>
+    <h1>Результаты поиска для "{{ data.requestt }}"</h1>
+    <div class="g">
+        {% for i in data.result %}
+        <div class="f">
+            <div><img src="{{ i[1] }}" alt="{{ i[2] }}" height="200px" width="155px"> <!-- Фото товара --></div>
+            <h2>{{ i[2] }}</h2> <!-- Название товара -->
+            <p>{{ i[6] }}</p> <!-- Описание товара -->
+            <p>Цена: {{ i[3] }} руб.</p> <!-- Цена товара -->
+            <button><a href="/buy">КУПИТЬ</a></button>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

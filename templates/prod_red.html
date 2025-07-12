@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <title></title>
+  </head>
+  <body>
+    Редактор по ассортименту товаров
+    <div>
+      <div>
+        <table  border="1">
+          <tr>
+            <td>Фото товара</td>
+            <td>id товара</td>
+            <td>Название товара</td>
+            <td>Цена товара</td>
+            <td>Бренд</td>
+            <td>Вид гаджета</td>
+            <td>Описание товара</td>
+          </tr>
+        {% for i in data.result %}
+        <tr>
+          <td>{{ i[1] }}</td>
+          <td>{{ i[0] }}</td>
+          <td>{{ i[2] }}</td>
+          <td>{{ i[3] }}</td>
+          <td>{{ i[4] }}</td>
+          <td>{{ i[5] }}</td>
+          <td>{{ i[6] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      </div>
+
+      <div>
+        <form action="/add_prod" method="POST">
+        <fieldset>
+          <legend>Добавить товар</legend>
+          <input type="text" placeholder="Фото товара" name="photo"><br><br>
+          <input type="text" placeholder="Название товара" name="name" required><br><br>
+          <input type="number" placeholder="Цена товара" name="prise" required><br><br>
+          <input type="text" placeholder="Бренд" name="brand" required><br><br>
+          <input type="text" placeholder="Вид гаджета" name="gadget" required><br><br>
+          <input type="text" placeholder="Описание товара" name="description" required><br><br>
+          <button type="text">Добавить</button><br>
+        </fieldset>
+      </form>
+      </div>
+
+      <div>
+        <form action="/red_prod" method="POST">
+        <br><br>
+        <fieldset>
+        <br>
+        <input type="number" placeholder="id товара" name="prod_id" required><br><br>
+        <legend>Изменить характеристику товара:</legend>
+        <div>
+            <input type="radio" id="photo" name="changeto" value="photo" checked />
+            <label for="registrated">Фото товара</label>
+          </div>
+          <div>
+            <input type="radio" id="name" name="changeto" value="name" checked />
+            <label for="registrated">Название товара</label>
+          </div>
+          <div>
+            <input type="radio" id="prise" name="changeto" value="prise" checked />
+            <label for="registrated">Цена товара</label>
+          </div>
+          <div>
+            <input type="radio" id="description" name="changeto" value="description" checked />
+            <label for="registrated">Описание товара</label>
+          </div>
+          <br>
+          <input type="text" placeholder="на что поменять" name="changed" required><br><br>
+        <button type="text">Изменить</button><br>
+        </fieldset>
+      </div>
+        </form>
+        <form action="/del_prod" method="POST">
+        <div>
+        <fieldset>
+          <legend>Удалить товар</legend>
+          <input type="number" placeholder="id товара" name="prod_id"><br><br>
+          <button type="text">Удалить</button><br>
+        </fieldset>
+        </div>
+        </form>
+      </div>
+  
+  </body>
+</html>

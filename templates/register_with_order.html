@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <title>login and password</title>
+   <link rel="stylesheet" href="../static/1.css">
+  </head>
+  <body align="center">
+    ДОБРО ПОЖАЛОВАТЬ!<br>
+    <button align="right"><a href='/del_ses'>Выйти</a></button>
+    <div class="f">
+    <div>
+    <table border="1" align="center" valign="center">
+      <tr>
+        <td colspan='2'>
+          <img src='{{ data.photo }}' width="250" height="200"></td>
+      </tr>
+      <tr>
+        <td>Имя</td>   
+        <td>{{ data.name }}</td>      
+   
+      </tr>
+      <tr>
+        <td>Фамилия</td>      
+        <td>{{ data.surname }}</td>      
+      </tr>
+      <tr>
+        <td>Город</td> 
+        <td>{{ data.city }}</td>      
+      </tr>
+      <tr>       
+        <td>Телефон</td>
+        <td>{{ data.tel }}</td>
+      </tr>
+      <tr>       
+        <td>Email</td>
+        <td>{{ data.email }}</td>
+      </tr>
+    </table>
+    </div>
+    <br><br>ЗАКАЗЫ<br>
+      <div class="h">
+            {% for k in range(l) %}
+            {% set i = orderinf[k] %}
+            {% set n = prod[k] %}
+            <div class="f">
+              Номер заказа: {{ i[0] }}
+            <table>
+              {% for k in n %}
+                  <tr>
+                  <td>{{ k[2] }}<!-- Название товара --></td>
+                  <td>Цена товара: {{ k[3] }} руб.</td>
+                  <td><img src="{{ k[1] }}" alt="{{ k[2] }}" height="50px" width="50px"> <!-- Фото товара --></td>
+                  </tr>
+              {% endfor %}
+            </table>
+              <p>{{ i[4] }}</p>
+              <p>Статус заказа: {{ i[5] }}</p>
+              Адрес заказа: {{ i[6] }}<br>
+              Карта оплаты: {{ i[7] }}
+              <p>Цена: {{ i[3] }} руб.</p> <!-- Цена заказа -->
+            </div>
+        {% endfor %}
+      </div>
+  </body>
+</html>

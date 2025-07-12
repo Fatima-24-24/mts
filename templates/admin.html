@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/1.css">
+
+</head>
+<body>
+    Добавить сотрудника:
+    <form action="/add" method="POST">
+        <input type="name" placeholder="Логин" name="login" required><br><br>
+        <input type="password" placeholder="Пароль" name="password" required><br><br>
+        <input type="text" placeholder="Имя" name="name" required><br><br>
+        <input type="text" placeholder="Фамилия" name="surname" required><br><br>
+        <input type="tel" placeholder="Телефон" name="tel" required><br><br>
+
+        <fieldset>
+        <legend>Обязанность:</legend>
+        <div>
+            <input type="radio" id="prod_red" name="position" value="prod_red" checked />
+            <label for="huey">Редактор по ассортименту товаров</label>
+          </div>
+        
+          <div>
+            <input type="radio" id="order_red" name="position" value="order_red" />
+            <label for="dewey">Редактор по заказам</label>
+          </div>
+          
+        <!--<input type="text" placeholder="Роль" name="position" required><br><br>-->
+        
+        <button type="text">Зарегистрироваться</button><br>
+    </form>
+    <div id="notification" style="display: none;">Вы успешно добавили нового сотрудника</div>
+    {% if s == True %}
+        <script src="/static/a.js"></script>
+    {% endif %}
+  
+</body>
+</html>

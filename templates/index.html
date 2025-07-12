@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/1.css">
+</head>
+<body>
+    <div class="a">
+        <div class="c">
+            <img src="../static/logos/mts.png" width="35px" height="35px">
+            <p valign="center">Москва</p>
+        </div>
+        <div>
+            <form action="/search" method="get" width="500px">
+                <input type="text" placeholder="Поиск" name="requestt">
+                <button id="d" type="submit"><a href='/s'><img src="../static/search.svg" width="10px" height="10px"></a></button>
+            </form>
+        </div>
+        <div class="c">
+            {%if data.stx == 'True'%}
+            <a href='/cart'><img src="../static/shopping_cart.svg" width="30px" height="30px"> {{data.x}}</a>
+            {% else %}
+            <img src="../static/shopping_cart.svg" width="30px" height="30px">
+            {% endif %}
+            
+            {%if data.st == 'True'%}
+            <button id="d" type="submit"><a href='/reg_ses'><img src="../static/akk.svg" width="10px" height="10px"></a></button>
+            {% else %}
+                <button><a href='/r'>Войти</a></button>
+            {% endif %}
+        </div>
+    </div>
+    <br><br>
+    <div class="a">
+        <div class="b"><a href="/phones">Смартфоны</a></div>
+        <div class="b"><a href="/smart_whatches">Умные часы и трекеры</a></div>
+        <div class="b"><a href="/earphones">Наушники и колонки</a></div>
+        <div class="b"><a href="/laptops">Планшеты</a></div>
+        <div class="b"><a href="/comp_tex">Компьютерная техника</a></div>
+        <div class="b"><a href="/TV">ТВ</a></div>
+    </div>
+    <br><br>
+    <div class="a" width="930px" height="105px">
+        <div class="e"><a href="/apple"><img src="../static/logos/apple.svg" width="50px" height="50px"></div></a>
+        <div class="e"><a href="/samsung"><img src="../static/logos/samsung.svg" width="150px" height="90px"></div></a>
+        <div class="e"><a href="/xiaomi"><img src="../static/logos/xiaomi.png" width="90px" height="90px"></div></a>
+        <div class="e"><a href="/honor"><img src="../static/logos/honor.png" width="150px" height="80px"></div></a>
+    </div>
+    <div>
+        <div class="g">
+            {% for i in data.result %}
+            <div class="f">
+                <div><img src="{{ i[1] }}" alt="{{ i[2] }}" height="200px" width="155px"> <!-- Фото товара --></div>
+                <h2>{{ i[2] }}</h2> <!-- Название товара -->
+                <p>{{ i[6] }}</p> <!-- Описание товара -->
+                <p>Цена: {{ i[3] }} руб.</p> <!-- Цена товара -->
+                <button><a href="/buy/{{i[0]}}">КУПИТЬ</a></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

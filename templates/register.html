@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <title>login and password</title>
+  </head>
+  <body align="center">
+    ДОБРО ПОЖАЛОВАТЬ!<br>
+    <button align="right"><a href='/del_ses'>Выйти</a></button>
+
+    <div>
+      <div>
+    <table border="1" align="center" valign="center">
+      <tr>
+        <td colspan='2'>
+          <img src='{{ data.photo }}' width="250" height="200"></td>
+      </tr>
+      <tr>
+        <td>Имя</td>   
+        <td>{{ data.name }}</td>      
+   
+      </tr>
+      <tr>
+        <td>Фамилия</td>      
+        <td>{{ data.surname }}</td>      
+      </tr>
+      <tr>
+        <td>Город</td> 
+        <td>{{ data.city }}</td>      
+      </tr>
+      <tr>       
+        <td>Телефон</td>
+        <td>{{ data.tel }}</td>
+      </tr>
+      <tr>       
+        <td>Email</td>
+        <td>{{ data.email }}</td>
+      </tr>
+    </table>
+    </div>
+    </div>
+  </body>
+</html>

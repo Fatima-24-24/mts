@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="f">
+        <div><img src="{{ data.result[1] }}" alt="{{ data.result[2] }}" height="200px" width="155px"> <!-- Фото товара --></div>
+        <h2>{{ data.result[2] }}</h2> <!-- Название товара -->
+        <p>{{ data.result[6] }}</p> <!-- Описание товара -->
+        <p>Цена: {{ data.result[3] }}</p> <!-- Цена товара -->
+    </div>
+    <br>
+    <form action="/order" method="POST">
+        <input type="tel" placeholder="Телефон" name="tel" required><br><br>
+        <input type="text" placeholder="Адрес" name="adress"><br><br>   
+        <input type="text" placeholder="Карта" name="paycard"><br><br>
+        <input type="hidden" name="id" value="{{ data.result[0] }}">
+        <button type="submit">Заказать</button><br>
+    </form>
+</body>
+</html>

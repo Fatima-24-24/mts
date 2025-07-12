@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="../static/1.css">
+   <title>Редактор по заказам</title>
+  </head>
+  <body>
+    Редактор по заказам<br><br><br>
+    <div>
+    <div>
+      <table  border="1">
+        <tr>
+          <td>id заказа</td>
+          <td>Название товара</td>
+          <td>Цена товара</td>
+          <td>Время заказа</td>
+          <td>Статус заказа</td>
+          <td>Адрес заказа</td>
+          <td>Карта оплаты</td>
+        </tr>
+      {% for i in data.result %}
+      <tr>
+        <td>{{ i[0] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[3] }}</td>
+        <td>{{ i[4] }}</td>
+        <td>{{ i[5] }}</td>
+        <td>{{ i[7] }}</td>
+        <td>{{ i[8] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+    <div>
+      <form action="/order_red" method="POST">
+        <br><br>
+      <fieldset>
+        <br>
+        <input type="number" placeholder="id заказа" name="order_id" required><br><br>
+        <legend>Изменить статус заказа:</legend>
+        <div>
+            <input type="radio" id="registrated" name="new_order_status" value="Оформлен" checked />
+            <label for="registrated">Оформлен</label>
+          </div>
+          <div>
+            <input type="radio" id="on_the_way" name="new_order_status" value="В пути" />
+            <label for="on_the_way">В пути</label>
+          </div>
+          <div>
+            <input type="radio" id="delivered" name="new_order_status" value="Доставлен" />
+            <label for="delivered">Доставлен</label>
+          </div>
+          <br>
+        <button type="text">Изменить</button><br>
+    </div>
+    </div>
+  </body>
+</html>
